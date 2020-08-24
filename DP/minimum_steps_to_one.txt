@@ -4,8 +4,8 @@ using namespace std;
 
 //We can take 1 step,n/2 if n%2==0 and n/3 if n%3==0 steps 
 //Find min steps to reach floor.
-
 //Using Top-Down Approach
+
 int minimumsteps(int n,int dp[])
 {
 	if(n==1)
