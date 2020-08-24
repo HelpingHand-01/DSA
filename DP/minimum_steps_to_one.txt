@@ -1,0 +1,31 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+
+//We can take 1 step,n/2 if n%2==0 and n/3 if n%3==0 steps 
+//Find min steps to reach floor.
+
+//Using Top-Down Approach
+int minimumsteps(int n,int dp[])
+{
+	if(n==1)
+		return 0;
+	else if(n==2 || n==3)
+		return 1;
+	if(dp[n]!=0)
+		return dp[n];
+	int ans = min(min(minimumsteps(n-1,dp),(n%2==0)?minimumsteps(n/2,dp):INT_MAX),(n%3==0)?minimumsteps(n/3,dp):INT_MAX)+1;
+	return dp[n] = ans;
+}
+
+
+int main()
+{
+	freopen("input.txt","r",stdin);
+	freopen("output.txt","w",stdout);
+	int n;
+	cin>>n;
+	int dp[100]={0};
+	cout<<minimumsteps(n,dp);
+	return 0;
+}
